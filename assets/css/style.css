@@ -1161,3 +1161,10 @@ main { overflow-x: clip; }
 [data-theme="dark"] .service-card .s-icon { background: rgba(123,147,255,.12); }
 [data-theme="dark"] .text-grad { background: linear-gradient(135deg, #8aa0ff, #34d399); -webkit-background-clip: text; background-clip: text; }
 [data-theme="dark"] :is(.hero, .page-hero, .cta, .faq-side) .text-grad { background: var(--grad-flame); -webkit-background-clip: text; background-clip: text; }
+
+/* Header wordmark: name only (tagline shown in footer) */
+.header .logo, .drawer .logo { font-size: 1.5rem; letter-spacing: -.4px; }
+@media (max-width: 640px) { .header .logo, .drawer .logo { font-size: 1.28rem; } }
+@media (max-width: 380px) { .header .logo, .drawer .logo { font-size: 1.12rem; } }
+.hero-badge span { white-space: nowrap; }
+@media (max-width: 380px) { .hero-badge { font-size: .72rem; gap: 8px; } .hero-badge span { padding: 4px 9px; } }

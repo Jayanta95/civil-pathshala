@@ -33,7 +33,9 @@
     { href: "contact.html", key: "contact", label: "Contact", icon: "fa-envelope" },
   ];
 
-  const logoHTML = `<a href="index.html" class="logo" aria-label="${SITE.name} home"><span class="logo-mark"><img src="assets/img/logo.png" alt="Civil Pathshala logo" width="46" height="46"></span><span>Civil <b>Pathshala</b><small>${SITE.tagline}</small></span></a>`;
+  // Header & mobile menu: logo + name only. Footer: also shows the tagline.
+  const logoHTML = `<a href="index.html" class="logo" aria-label="${SITE.name} home"><span class="logo-mark"><img src="assets/img/logo.png" alt="Civil Pathshala logo" width="46" height="46"></span><span>Civil <b>Pathshala</b></span></a>`;
+  const logoFooterHTML = `<a href="index.html" class="logo" aria-label="${SITE.name} home"><span class="logo-mark"><img src="assets/img/logo.png" alt="Civil Pathshala logo" width="46" height="46"></span><span>Civil <b>Pathshala</b><small>${SITE.tagline}</small></span></a>`;
 
   function buildHeader() {
     const holder = $("#site-header");
@@ -97,7 +99,7 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            ${logoHTML}
+            ${logoFooterHTML}
             <p>Civil Pathshala is an engineering consultancy led by ${SITE.founder}, ${SITE.founderTitle}. We plan, design and supervise better homes — and teach civil engineering for free on YouTube.</p>
             <div class="socials">
               <a href="${SITE.youtube}" class="yt" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
