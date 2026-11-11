@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Construction Calculators — Cost, Concrete, Brick, Steel, Tile, Paint | Civil Pathshala</title>
+  <meta name="description" content="Free civil engineering calculators: house construction cost, concrete (cement, sand, aggregate), brick, steel weight, tile, paint and land area unit converter.">
+  <meta name="theme-color" content="#071040">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>try{var t=localStorage.getItem("cp-theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body data-page="calculators">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="blueprint-grid"></div>
+      <div class="container">
+        <div class="breadcrumb" data-reveal="down"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Free Tools</span></div>
+        <h1 data-reveal="up">Free Construction <span class="text-grad">Calculators</span></h1>
+        <p data-reveal="up" data-delay="100">Quick, accurate thumb-rule estimates for cost, concrete, bricks, steel, tiles and paint — used by engineers & home builders.</p>
+      </div>
+      <div class="hero-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="currentColor" d="M0 40C240 80 480 0 720 20s480 50 720 10V70H0Z"/></svg></div>
+    </section>
+
+    <section class="section" style="padding-top:60px">
+      <div class="container calc-layout">
+        <nav class="calc-tabs" aria-label="Calculators">
+          <button class="calc-tab" data-tab="cost"><i class="fa-solid fa-house-circle-check"></i>Construction Cost</button>
+          <button class="calc-tab" data-tab="concrete"><i class="fa-solid fa-cubes-stacked"></i>Concrete</button>
+          <button class="calc-tab" data-tab="brick"><i class="fa-solid fa-border-all"></i>Brick Work</button>
+          <button class="calc-tab" data-tab="steel"><i class="fa-solid fa-bars-staggered"></i>Steel Weight</button>
+          <button class="calc-tab" data-tab="tile"><i class="fa-solid fa-table-cells"></i>Tiles</button>
+          <button class="calc-tab" data-tab="paint"><i class="fa-solid fa-paint-roller"></i>Paint</button>
+          <button class="calc-tab" data-tab="units"><i class="fa-solid fa-right-left"></i>Area Converter</button>
+        </nav>
+
+        <div>
+          <!-- COST -->
+          <div class="calc-panel" id="panel-cost">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-house-circle-check"></i></div><div><h3>House Construction Cost Calculator</h3><p>Estimate total cost and material quantities for your house.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="field"><label for="c-area">Built-up area per floor (sqft)</label><input type="number" id="c-area" value="1200" min="1"></div>
+                <div class="field"><label for="c-floors">Number of floors</label><input type="number" id="c-floors" value="2" min="1" max="10"></div>
+                <div class="field"><label for="c-quality">Construction quality</label>
+                  <select id="c-quality"><option value="1700">Basic (₹1,700/sqft)</option><option value="2100" selected>Standard (₹2,100/sqft)</option><option value="2700">Premium (₹2,700/sqft)</option><option value="custom">Custom rate</option></select></div>
+                <div class="field" id="c-custom-wrap" hidden><label for="c-rate">Custom rate (₹/sqft)</label><input type="number" id="c-rate" value="2000" min="1"></div>
+                <div class="note"><i class="fa-solid fa-circle-info"></i> Rates are average 2026 thumb-rule figures for Indian cities. Labour & local prices may vary ±15%.</div>
+              </div>
+              <div class="calc-output">
+                <h4>Estimated Total Cost</h4>
+                <div class="big-out" id="c-total">—</div>
+                <div class="donut-wrap"><div class="donut" id="c-donut"><span>Cost<br>Split</span></div><div style="font-size:.85rem;color:var(--muted)" id="c-sqft"></div></div>
+                <table class="out-table" id="c-table"></table>
+              </div>
+            </div>
+            <div style="padding:0 32px 30px"><h4 style="margin:24px 0 10px;font-size:1rem">Approximate Material Quantity</h4><table class="out-table" id="c-mat"></table></div>
+          </div>
+
+          <!-- CONCRETE -->
+          <div class="calc-panel" id="panel-concrete">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-cubes-stacked"></i></div><div><h3>Concrete Calculator</h3><p>Cement, sand & aggregate required for slab, beam, column or footing.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="field"><label for="k-unit">Unit</label><select id="k-unit"><option value="ft">Feet</option><option value="m">Metre</option></select></div>
+                <div class="inline-2">
+                  <div class="field"><label for="k-l">Length</label><input type="number" id="k-l" value="20" min="0" step="any"></div>
+                  <div class="field"><label for="k-w">Width</label><input type="number" id="k-w" value="15" min="0" step="any"></div>
+                </div>
+                <div class="field"><label for="k-d">Depth / Thickness</label><input type="number" id="k-d" value="0.4167" min="0" step="any"><div class="hint">5 inch slab = 0.4167 ft = 0.127 m</div></div>
+                <div class="field"><label for="k-grade">Concrete grade</label>
+                  <select id="k-grade"><option value="1,3,6">M10 (1 : 3 : 6)</option><option value="1,2,4">M15 (1 : 2 : 4)</option><option value="1,1.5,3" selected>M20 (1 : 1.5 : 3)</option><option value="1,1,2">M25 (1 : 1 : 2)</option></select></div>
+              </div>
+              <div class="calc-output">
+                <h4>Cement Required</h4>
+                <div class="big-out" id="k-cement">—</div>
+                <table class="out-table" id="k-table"></table>
+                <div class="note">Dry volume = wet volume × 1.54. 1 bag cement = 50 kg = 0.035 m³.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRICK -->
+          <div class="calc-panel" id="panel-brick">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-border-all"></i></div><div><h3>Brick Work Calculator</h3><p>Number of bricks, cement & sand for a wall.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="field"><label for="b-unit">Unit</label><select id="b-unit"><option value="ft">Feet</option><option value="m">Metre</option></select></div>
+                <div class="inline-2">
+                  <div class="field"><label for="b-l">Wall length</label><input type="number" id="b-l" value="20" min="0" step="any"></div>
+                  <div class="field"><label for="b-h">Wall height</label><input type="number" id="b-h" value="10" min="0" step="any"></div>
+                </div>
+                <div class="field"><label for="b-t">Wall thickness</label><select id="b-t"><option value="0.115">4.5 inch (half brick)</option><option value="0.23" selected>9 inch (full brick)</option></select></div>
+                <div class="field"><label for="b-ratio">Mortar ratio</label><select id="b-ratio"><option value="4">1 : 4</option><option value="5">1 : 5</option><option value="6" selected>1 : 6</option></select></div>
+              </div>
+              <div class="calc-output">
+                <h4>Bricks Required</h4>
+                <div class="big-out" id="b-count">—</div>
+                <table class="out-table" id="b-table"></table>
+                <div class="note">Standard brick 190×90×90 mm with 10 mm mortar joint. Includes 5% wastage for bricks.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEEL -->
+          <div class="calc-panel" id="panel-steel">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-bars-staggered"></i></div><div><h3>Steel Weight Calculator</h3><p>Weight of TMT bars using the D²/162 formula.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="field"><label for="s-dia">Bar diameter (mm)</label><select id="s-dia"><option>6</option><option>8</option><option>10</option><option selected>12</option><option>16</option><option>20</option><option>25</option><option>32</option></select></div>
+                <div class="inline-2">
+                  <div class="field"><label for="s-len">Length per bar (m)</label><input type="number" id="s-len" value="12" min="0" step="any"></div>
+                  <div class="field"><label for="s-n">Number of bars</label><input type="number" id="s-n" value="10" min="0"></div>
+                </div>
+                <div class="field"><label for="s-rate">Steel rate (₹/kg) — optional</label><input type="number" id="s-rate" value="65" min="0" step="any"></div>
+              </div>
+              <div class="calc-output">
+                <h4>Total Steel Weight</h4>
+                <div class="big-out" id="s-total">—</div>
+                <table class="out-table" id="s-table"></table>
+              </div>
+            </div>
+            <div style="padding:0 32px 30px"><h4 style="margin:24px 0 10px;font-size:1rem">Standard Unit Weights</h4><table class="out-table" id="s-std"></table></div>
+          </div>
+
+          <!-- TILE -->
+          <div class="calc-panel" id="panel-tile">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-table-cells"></i></div><div><h3>Tile Calculator</h3><p>Number of tiles and boxes for your floor.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="inline-2">
+                  <div class="field"><label for="t-l">Room length (ft)</label><input type="number" id="t-l" value="12" min="0" step="any"></div>
+                  <div class="field"><label for="t-w">Room width (ft)</label><input type="number" id="t-w" value="10" min="0" step="any"></div>
+                </div>
+                <div class="field"><label for="t-size">Tile size</label>
+                  <select id="t-size"><option value="1,1,9">1 × 1 ft (300×300 mm)</option><option value="1,2,6">1 × 2 ft (300×600 mm)</option><option value="2,2,4" selected>2 × 2 ft (600×600 mm)</option><option value="2,4,2">2 × 4 ft (600×1200 mm)</option><option value="4,8,1">4 × 8 ft (1200×2400 mm)</option></select></div>
+                <div class="inline-2">
+                  <div class="field"><label for="t-box">Tiles per box</label><input type="number" id="t-box" value="4" min="1"></div>
+                  <div class="field"><label for="t-waste">Wastage %</label><input type="number" id="t-waste" value="10" min="0" max="50"></div>
+                </div>
+              </div>
+              <div class="calc-output">
+                <h4>Tiles Required</h4>
+                <div class="big-out" id="t-count">—</div>
+                <table class="out-table" id="t-table"></table>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAINT -->
+          <div class="calc-panel" id="panel-paint">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-paint-roller"></i></div><div><h3>Paint Calculator</h3><p>Paint, primer & putty needed for a room.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="inline-2">
+                  <div class="field"><label for="p-l">Room length (ft)</label><input type="number" id="p-l" value="12" min="0" step="any"></div>
+                  <div class="field"><label for="p-w">Room width (ft)</label><input type="number" id="p-w" value="10" min="0" step="any"></div>
+                </div>
+                <div class="inline-2">
+                  <div class="field"><label for="p-h">Wall height (ft)</label><input type="number" id="p-h" value="10" min="0" step="any"></div>
+                  <div class="field"><label for="p-coats">Paint coats</label><input type="number" id="p-coats" value="2" min="1" max="5"></div>
+                </div>
+                <div class="inline-2">
+                  <div class="field"><label for="p-doors">Doors (≈21 sqft)</label><input type="number" id="p-doors" value="1" min="0"></div>
+                  <div class="field"><label for="p-win">Windows (≈15 sqft)</label><input type="number" id="p-win" value="2" min="0"></div>
+                </div>
+                <div class="field"><label style="display:flex;gap:10px;align-items:center;cursor:pointer"><input type="checkbox" id="p-ceil" checked style="width:auto"> Include ceiling</label></div>
+              </div>
+              <div class="calc-output">
+                <h4>Paint Required</h4>
+                <div class="big-out" id="p-total">—</div>
+                <table class="out-table" id="p-table"></table>
+                <div class="note">Coverage assumed: emulsion 120 sqft/L/coat, primer 100 sqft/L, putty 15 sqft/kg (2 coats).</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UNITS -->
+          <div class="calc-panel" id="panel-units">
+            <div class="calc-head"><div class="ci"><i class="fa-solid fa-right-left"></i></div><div><h3>Land Area Unit Converter</h3><p>Convert sqft, sqm, gaj, acre, hectare, marla & more.</p></div></div>
+            <div class="calc-body">
+              <div class="calc-inputs">
+                <div class="field"><label for="u-val">Value</label><input type="number" id="u-val" value="1200" min="0" step="any"></div>
+                <div class="field"><label for="u-from">From unit</label><select id="u-from"></select></div>
+                <div class="note">Gaj = square yard. Local units like bigha & biswa vary by state, so they are not included.</div>
+              </div>
+              <div class="calc-output">
+                <h4>Converted Values</h4>
+                <table class="out-table" id="u-table"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding:0">
+      <div class="container">
+        <div class="cta" data-reveal="zoom">
+          <div><h2>Need an <span class="text-grad">exact estimate?</span></h2><p>Get a detailed BOQ prepared by our civil engineers from your drawings.</p></div>
+          <div class="cta-btns"><a href="contact.html" class="btn">Order Detailed Estimate <i class="fa-solid fa-arrow-right"></i></a><a href="#" data-site="youtube" target="_blank" rel="noopener" class="btn btn-light"><i class="fa-brands fa-youtube"></i> Learn Estimation</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/calculators.js"></script>
+</body>
+</html>
